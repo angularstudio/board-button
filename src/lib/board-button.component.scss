@@ -1,0 +1,33 @@
+:host {
+
+    .wrapper {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid #000;
+        border-radius: 4px;
+        padding: 10px;
+
+        cursor: pointer;
+
+        .label {
+
+            margin-top: 3px;
+
+        }
+
+        &:hover {
+
+            i, .label {
+
+                font-weight: bold;
+            }
+
+        }
+
+    }
+
+}
