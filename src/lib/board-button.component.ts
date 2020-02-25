@@ -10,15 +10,17 @@ import { BoardButton }                            from './board-button';
 
         <div class="wrapper"
              (click)="onClick()"
+             [class.collapsed]="collapsed"
              [matTooltip]="item?.tooltip"
-             [style.width]="item?.width"
+             [style.width]="collapsed ? '' : item?.width"
              [style.background-color]="item?.backgroundColor">
 
             <i [class]="item?.iconClass"
                [style.font-size]="item?.iconFontSize"
                [style.color]="item?.iconColor"></i>
 
-            <div class="label"
+            <div *ngIf="!collapsed"
+                 class="label"
                  [style.font-size]="item?.labelFontSize"
                  [style.color]="item?.labelFontColor">{{ item?.label }}</div>
 
@@ -31,6 +33,7 @@ import { BoardButton }                            from './board-button';
 })
 export class BoardButtonComponent {
 
+    @Input() public collapsed: boolean;
     @Input() public item: BoardButton;
 
     @Output() public eventClick: EventEmitter<BoardButton> = new EventEmitter();
